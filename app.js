@@ -89,7 +89,7 @@ while(useCalculator){
 
                 alert(bmi(weight,height));
                 function bmi(w,h){
-                    return w / h*h;
+                    return w / (h*h);
                 }
                 break;
 
