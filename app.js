@@ -4,90 +4,83 @@ var useCalculator = true;
 
 while(useCalculator){
 
-    var start = prompt("Type:\n 'A' for basic calculator\n 'B' for advanced calculator\n 'E' to exit");
-    //alert("xdgdfhg")
-    switch (start){
-        
-        case "A":
+    var mainMenu = prompt("Type:\n 'A' for basic calculator\n 'B' for advanced calculator\n 'E' to exit");
+
+    switch (mainMenu){
         //Basic calculator functions
-        console.log("bc functions");
+        case "A":
         var useBasicCalculator = true;
 
         while(useBasicCalculator){
 
-            var bcOperators = prompt("Type:\n 'A' for addition\n 'B' for subtraction\n 'C' for multiplication\n 'D' for division\n 'E' for main menu");
+            var basicMenu = prompt("Type:\n 'A' for addition\n 'B' for subtraction\n 'C' for multiplication\n 'D' for division\n 'E' for main menu");
 
-            switch (bcOperators){
+            switch (basicMenu){
 
                 //Addition
                 case "A":
                 alert("Addition")
-                var num1Input = parseInt(prompt("Enter first number: "), 10);
-                var num2Input = parseInt(prompt("Enter second number: "), 10);
+            
+                numInput();
+                var addNumbers = (num1,num2) => num1 + num2;
 
-                alert(addNumbers(num1Input, num2Input));
-
-                function addNumbers(num1,num2){
-                   return num1 + num2;
-                }
+                alert(addNumbers(n1,n2));
                 break;
 
                 //Subtraction
                 case "B":
                 alert("Subtraction")
-                var num1Input = parseInt(prompt("Enter first number: "), 10);
-                var num2Input = parseInt(prompt("Enter second number: "), 10);
 
-                alert(subtractNumbers(num1Input, num2Input));
+                numInput();
+                var subNumbers = (num1,num2) => num1 - num2;
 
-                function subtractNumbers(num1,num2){
-                   return num1 - num2;
-                }
+                alert(subNumbers(n1,n2));
                 break;
 
                 //Multiplication
                 case "C":
                 alert("Multiplication")
-                var num1Input = parseInt(prompt("Enter first number: "), 10);
-                var num2Input = parseInt(prompt("Enter second number: "), 10);
+                
+                numInput();
+                var timesNumbers = (num1,num2) => num1 * num2;
 
-                alert(timesNumbers(num1Input, num2Input));
-
-                function timesNumbers(num1,num2){
-                   return num1 * num2;
-                }
+                alert(timesNumbers(n1,n2));
                 break;
 
                 //Division
                 case "D":
                 alert("Division")
-                var num1Input = parseFloat(prompt("Enter first number: "));
-                var num2Input = parseFloat(prompt("Enter second number: "));
+                
+                numInput();
+                var divNumbers = (num1,num2) => num1 / num2;
 
-                alert(divNumbers(num1Input, num2Input));
-
-                function divNumbers(num1,num2){
-                   return num1 / num2;
-                }
+                alert(divNumbers(n1,n2));
                 break;
 
+                //Exit to main
                 case "E":
                 useBasicCalculator = false;
                 break;  
             }
+
+            //Input function
+            function numInput(){
+                n1 = parseFloat(prompt("Enter first number: "));
+                n2 = parseFloat(prompt("Enter second number: "));
+            }
         }
         break;
 
-        case "B":
         //Advanced calculator functions
-
+        case "B":
         var useAdvancedCalculator = true;
 
         while (useAdvancedCalculator){
-            var acOperators = prompt("Type:\n 'A' for BMI\n 'B' for Temp conversion\n 'E' for main menu");
+            var advancedMenu = prompt("Type:\n 'A' for BMI\n 'B' for Temp conversion\n 'E' for main menu");
 
-            switch(acOperators){
+            switch(advancedMenu){
 
+                //BMI
                 case "A":
                 alert("BMI");
 
@@ -100,24 +93,27 @@ while(useCalculator){
                 }
                 break;
 
+                //Fahrenheit to celcius
                 case "B":
                 alert("Fahrenheit to Celcius");
 
                 var fah = parseFloat(prompt("Enter temperature in fahrenheit: "));
-
                 alert(fToC(fah));
+
                 function fToC(f){
                     return (fah - 32)*(5/9);
                 }
                 break;
-                //f celc - formula
-                //sort out screen stuff
+
+                //Exit to main
+                case "E":
+                useAdvancedCalculator = false;
+                break;
             }
         }
         break;
 
-
-        //useCalculator app
+        //Exit app
         case "E":
         useCalculator = false;
         break;
