@@ -4,7 +4,7 @@ var useCalculator = true;
 
 while(useCalculator){
 
-    var start = prompt("Type 'A' for basic calculator, 'B' for advanced calculator or 'C' to exit");
+    var start = prompt("Type:\n 'A' for basic calculator\n 'B' for advanced calculator\n 'E' to exit");
     //alert("xdgdfhg")
     switch (start){
         
@@ -15,7 +15,7 @@ while(useCalculator){
 
         while(useBasicCalculator){
 
-            var bcOperators = prompt("Type 'A' for addition\n 'B' for subtraction\n 'C' for multiplication\n 'D' for division\n 'E' for main menu");
+            var bcOperators = prompt("Type:\n 'A' for addition\n 'B' for subtraction\n 'C' for multiplication\n 'D' for division\n 'E' for main menu");
 
             switch (bcOperators){
 
@@ -73,26 +73,52 @@ while(useCalculator){
 
                 case "E":
                 useBasicCalculator = false;
-                break;
-
-                
+                break;  
             }
-
-
-
         }
-
-
-
         break;
 
         case "B":
         //Advanced calculator functions
+
+        var useAdvancedCalculator = true;
+
+        while (useAdvancedCalculator){
+            var acOperators = prompt("Type:\n 'A' for BMI\n 'B' for Temp conversion\n 'E' for main menu");
+
+            switch(acOperators){
+
+                case "A":
+                alert("BMI");
+
+                var weight = parseFloat(prompt("Enter weight in kilos: "));
+                var height = parseFloat(prompt("Enter height in meters: "));
+
+                alert(bmi(weight,height));
+                function bmi(w,h){
+                    return w / h*h;
+                }
+                break;
+
+                case "B":
+                alert("Fahrenheit to Celcius");
+
+                var fah = parseFloat(prompt("Enter temperature in fahrenheit: "));
+
+                alert(fToC(fah));
+                function fToC(f){
+                    return (fah - 32)*(5/9);
+                }
+                break;
+                //f celc - formula
+                //sort out screen stuff
+            }
+        }
         break;
 
 
         //useCalculator app
-        case "C":
+        case "E":
         useCalculator = false;
         break;
     }
